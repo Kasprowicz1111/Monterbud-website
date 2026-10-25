@@ -4,9 +4,10 @@ export const SITE = {
   tagline: "Technologia. Precyzja. Doświadczenie.",
   motto: "PROJEKT • PRODUKCJA • MONTAŻ • SERWIS",
   description:
-    "MONTERBUD — projekt, produkcja, montaż i serwis instalacji przemysłowych z Nowego Miasta Lubawskiego. Mieszalnie pasz, magazyny zboża, linie do produkcji peletu, CNC.",
+    "MONTERBUD z Nowego Miasta Lubawskiego — projekt, produkcja, montaż i serwis. Realizacje obejmują zbiorniki, silosy i instalacje przemysłowe.",
   about:
-    "MONTERBUD z Nowego Miasta Lubawskiego zajmuje się projektowaniem, produkcją, montażem i serwisem. W centrum działalności są mieszalnie pasz, magazyny zboża, linie do produkcji peletu, obróbka CNC oraz konstrukcje i wyposażenie dla rolnictwa.",
+    "MONTERBUD to firma z Nowego Miasta Lubawskiego działająca w branży przemysłowej. Projekt, produkcja, montaż i serwis to cztery filary działalności, które widać w prezentowanych realizacjach: zbiornikach, silosach i instalacjach technologicznych.",
+  facebook: "https://www.facebook.com/monterbudnowemiastolub/?locale=pl_PL",
   instagram: "https://www.instagram.com/_monterbud_/",
   contact: {
     email: "monterbud@monterbud.eu",
@@ -15,94 +16,33 @@ export const SITE = {
     street: "ul. Grunwaldzka 93",
     city: "Nowe Miasto Lubawskie",
     hoursShort: "Pon.–Pt. 7:00–15:00",
+    hoursBar: "Poniedziałek–piątek, 7:00–15:00",
     hoursLong: "Poniedziałek–piątek: 7:00–15:00",
     mapsHref:
       "https://www.google.com/maps/search/?api=1&query=ul.+Grunwaldzka+93%2C+Nowe+Miasto+Lubawskie",
   },
 } as const;
 
-export const HERO_PHOTO = {
-  src: "/realizacje/hero-silos.png",
-  alt: "Instalacja silosów zbożowych MONTERBUD",
-} as const;
-
-export const PROJECT_PHOTOS = [
-  {
-    src: "/realizacje/hero-silos.png",
-    alt: "Silosy zbożowe z wieżą transportową",
-    span: "wide",
-  },
-  {
-    src: "/realizacje/silosy-bateria.png",
-    alt: "Bateria silosów na konstrukcji stalowej",
-    span: "tall",
-  },
-  {
-    src: "/realizacje/mieszalnia.png",
-    alt: "Instalacja mieszalni pasz wewnątrz hali",
-    span: "normal",
-  },
-  {
-    src: "/realizacje/silosy-elewator.png",
-    alt: "Silosy przy hali z elewatorem",
-    span: "normal",
-  },
-  {
-    src: "/realizacje/zbiorniki-logo.png",
-    alt: "Zbiorniki ekspedycyjne MONTERBUD",
-    span: "normal",
-  },
-  {
-    src: "/realizacje/mieszalnia-hala.png",
-    alt: "Linia technologiczna w hali produkcyjnej",
-    span: "wide",
-  },
-] as const;
-
-export const PROJECT_GALLERY = [
-  ...PROJECT_PHOTOS,
-  {
-    src: "/realizacje/silosy-rzad.png",
-    alt: "Rząd silosów przy budynku",
-    span: "normal",
-  },
-  {
-    src: "/realizacje/podnosniki.png",
-    alt: "Zbiorniki i przenośnik kubełkowy",
-    span: "normal",
-  },
-  {
-    src: "/realizacje/zbiorniki-para.png",
-    alt: "Para zbiorników na konstrukcji",
-    span: "normal",
-  },
-  {
-    src: "/realizacje/montaz.png",
-    alt: "Montaż silosów na placu budowy",
-    span: "normal",
-  },
-] as const;
-
 export const CAPABILITIES = [
   {
     key: "projekt",
     title: "Projekt",
-    text: "Przygotowanie instalacji i konstrukcji pod konkretne zadanie — od układu po wykonanie.",
+    text: "Przygotowanie układu instalacji i konstrukcji pod konkretne zadanie — od koncepcji po wykonanie.",
   },
   {
     key: "produkcja",
     title: "Produkcja",
-    text: "Wykonanie w zakładzie: zbiorniki, przenośniki, konstrukcje stalowe i elementy CNC.",
+    text: "Wykonanie elementów i zespołów w zakładzie: zbiorniki, silosy oraz konstrukcje towarzyszące instalacjom.",
   },
   {
     key: "montaz",
     title: "Montaż",
-    text: "Składanie i uruchamianie instalacji na obiekcie — silosy, transport surowców, mieszalnie.",
+    text: "Składanie i uruchamianie instalacji na obiekcie — od konstrukcji wsporczych po kompletne układy magazynowania.",
   },
   {
     key: "serwis",
     title: "Serwis",
-    text: "Wsparcie po oddaniu: utrzymanie, korekty i dalsza współpraca przy rozbudowie.",
+    text: "Wsparcie po oddaniu instalacji oraz dalsza współpraca przy utrzymaniu i rozbudowie.",
   },
 ] as const;
 

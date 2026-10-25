@@ -16,10 +16,10 @@ export const defaultMetadata: Metadata = {
   keywords: [
     "MONTERBUD",
     "Nowe Miasto Lubawskie",
-    "mieszalnie pasz",
     "silosy",
-    "magazyny zboża",
-    "CNC",
+    "zbiorniki",
+    "mieszalnie pasz",
+    "instalacje przemysłowe",
   ],
   authors: [{ name: SITE.name }],
   creator: SITE.name,
@@ -33,6 +33,12 @@ export const defaultMetadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} | ${SITE.location}`,
     description: SITE.description,
+    images: [
+      {
+        url: "/realizacje/hero-silos.png",
+        alt: "Instalacja silosów MONTERBUD",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -45,15 +51,18 @@ export const defaultMetadata: Metadata = {
   },
 };
 
-export function pageMetadata(title: string, path: string): Metadata {
+export function pageMetadata(title: string, path: string, description?: string): Metadata {
+  const text = description ?? SITE.description;
+
   return {
     title,
+    description: text,
     alternates: {
       canonical: path,
     },
     openGraph: {
       title: `${title} | ${SITE.name}`,
-      description: SITE.description,
+      description: text,
       url: path,
       locale: "pl_PL",
       siteName: SITE.name,

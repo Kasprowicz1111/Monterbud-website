@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { prefersReducedMotion } from "@/lib/gsap";
 
 type RevealProps = {
   children: ReactNode;
@@ -18,6 +19,10 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
       return;
     }
 
+    if (prefersReducedMotion()) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,7 +34,7 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
     );
 
     observer.observe(node);
-    const fallback = window.setTimeout(() => setVisible(true), 700);
+    const fallback = window.setTimeout(() => setVisible(true), 800);
 
     return () => {
       observer.disconnect();
@@ -40,8 +45,8 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`transition-[opacity,transform] duration-700 ease-out ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      className={`reveal-motion transition-[opacity,transform] duration-700 ease-out ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
       } ${className}`}
       style={{ transitionDelay: `${delayMs}ms` }}
     >
