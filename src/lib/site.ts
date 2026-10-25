@@ -2,6 +2,7 @@ export const SITE = {
   name: "MONTERBUD",
   location: "Nowe Miasto Lubawskie",
   tagline: "Technologia. Precyzja. Doświadczenie.",
+  motto: "PROJEKT • PRODUKCJA • MONTAŻ • SERWIS",
   description:
     "MONTERBUD — firma przemysłowa z Nowego Miasta Lubawskiego. Technologia. Precyzja. Doświadczenie.",
 } as const;

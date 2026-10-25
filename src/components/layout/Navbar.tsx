@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { BrandLogo } from "@/components/brand/BrandLogo";
-import { NAV_ITEMS, SITE } from "@/lib/site";
+import { BrandMark } from "@/components/brand/BrandMark";
+import { NAV_ITEMS } from "@/lib/site";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") {
@@ -21,19 +21,16 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-[4.5rem] md:px-8">
+      <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-5 py-2.5 md:min-h-[4.75rem] md:px-8 md:py-3">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-white md:gap-3"
+          className="min-w-0 text-white transition-opacity hover:opacity-90"
           onClick={() => setIsOpen(false)}
         >
-          <BrandLogo variant="nav" priority />
-          <span className="font-display text-lg font-semibold tracking-[0.28em] md:text-xl">
-            {SITE.name}
-          </span>
+          <BrandMark priority />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Główne">
+        <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Główne">
           {NAV_ITEMS.map((item) => {
             const active = isActivePath(pathname, item.href);
 
