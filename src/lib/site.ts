@@ -7,33 +7,79 @@ export const SITE = {
     "MONTERBUD — projekt, produkcja, montaż i serwis instalacji przemysłowych z Nowego Miasta Lubawskiego. Mieszalnie pasz, magazyny zboża, linie do produkcji peletu, CNC.",
   about:
     "MONTERBUD z Nowego Miasta Lubawskiego zajmuje się projektowaniem, produkcją, montażem i serwisem. W centrum działalności są mieszalnie pasz, magazyny zboża, linie do produkcji peletu, obróbka CNC oraz konstrukcje i wyposażenie dla rolnictwa.",
+  instagram: "https://www.instagram.com/_monterbud_/",
   contact: {
     email: "monterbud@monterbud.eu",
-    phone: "660 588 721",
+    phone: "+48 660 588 721",
     phoneHref: "tel:+48660588721",
     street: "ul. Grunwaldzka 93",
-    postal: "13-300 Nowe Miasto Lubawskie",
+    city: "Nowe Miasto Lubawskie",
+    hoursShort: "Pon.–Pt. 7:00–15:00",
+    hoursLong: "Poniedziałek–piątek: 7:00–15:00",
+    mapsHref:
+      "https://www.google.com/maps/search/?api=1&query=ul.+Grunwaldzka+93%2C+Nowe+Miasto+Lubawskie",
   },
+} as const;
+
+export const HERO_PHOTO = {
+  src: "/realizacje/hero-silos.png",
+  alt: "Instalacja silosów zbożowych MONTERBUD",
 } as const;
 
 export const PROJECT_PHOTOS = [
   {
-    src: "/realizacje/silosy.png",
-    alt: "Bateria silosów zbożowych MONTERBUD",
-    title: "Magazyny zboża",
-    note: "Silosy i konstrukcje",
+    src: "/realizacje/hero-silos.png",
+    alt: "Silosy zbożowe z wieżą transportową",
+    span: "wide",
+  },
+  {
+    src: "/realizacje/silosy-bateria.png",
+    alt: "Bateria silosów na konstrukcji stalowej",
+    span: "tall",
   },
   {
     src: "/realizacje/mieszalnia.png",
-    alt: "Mieszalnia pasz — instalacja wewnętrzna MONTERBUD",
-    title: "Mieszalnie pasz",
-    note: "Instalacje kompletne",
+    alt: "Instalacja mieszalni pasz wewnątrz hali",
+    span: "normal",
   },
   {
-    src: "/realizacje/przenosniki.png",
-    alt: "Przenośniki ślimakowe i zbiorniki MONTERBUD",
-    title: "Wyposażenie",
-    note: "Przenośniki i zbiorniki",
+    src: "/realizacje/silosy-elewator.png",
+    alt: "Silosy przy hali z elewatorem",
+    span: "normal",
+  },
+  {
+    src: "/realizacje/zbiorniki-logo.png",
+    alt: "Zbiorniki ekspedycyjne MONTERBUD",
+    span: "normal",
+  },
+  {
+    src: "/realizacje/mieszalnia-hala.png",
+    alt: "Linia technologiczna w hali produkcyjnej",
+    span: "wide",
+  },
+] as const;
+
+export const PROJECT_GALLERY = [
+  ...PROJECT_PHOTOS,
+  {
+    src: "/realizacje/silosy-rzad.png",
+    alt: "Rząd silosów przy budynku",
+    span: "normal",
+  },
+  {
+    src: "/realizacje/podnosniki.png",
+    alt: "Zbiorniki i przenośnik kubełkowy",
+    span: "normal",
+  },
+  {
+    src: "/realizacje/zbiorniki-para.png",
+    alt: "Para zbiorników na konstrukcji",
+    span: "normal",
+  },
+  {
+    src: "/realizacje/montaz.png",
+    alt: "Montaż silosów na placu budowy",
+    span: "normal",
   },
 ] as const;
 

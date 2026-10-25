@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { TopBar } from "@/components/layout/TopBar";
 import { LoadingProvider } from "@/components/loading/LoadingProvider";
 
 type SiteShellProps = {
@@ -15,7 +16,10 @@ export function SiteShell({ children }: SiteShellProps) {
       >
         Przejdź do treści
       </a>
-      <Navbar />
+      <div className="sticky top-0 z-50">
+        <TopBar />
+        <Navbar />
+      </div>
       <main id="tresc" className="flex flex-1 flex-col">
         {children}
       </main>

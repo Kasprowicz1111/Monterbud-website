@@ -20,7 +20,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-background/85 backdrop-blur-md">
+    <header className="border-b border-white/8 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-5 py-2.5 md:min-h-[4.75rem] md:px-8 md:py-3">
         <Link
           href="/"

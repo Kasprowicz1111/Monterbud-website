@@ -1,5 +1,4 @@
 import { HomeAbout } from "@/components/home/HomeAbout";
-import { HomeCapabilities } from "@/components/home/HomeCapabilities";
 import { HomeContactCta } from "@/components/home/HomeContactCta";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeProjectsTeaser } from "@/components/home/HomeProjectsTeaser";
@@ -9,7 +8,6 @@ export default function Home() {
     <>
       <HomeHero />
       <HomeAbout />
-      <HomeCapabilities />
       <HomeProjectsTeaser />
       <HomeContactCta />
     </>

@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { NAV_ITEMS, SITE } from "@/lib/site";
@@ -5,22 +6,55 @@ import { NAV_ITEMS, SITE } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-white/8 bg-graphite">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 md:flex-row md:items-end md:justify-between md:px-8">
-        <div className="flex items-center gap-3">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_1fr] md:px-8 lg:grid-cols-[1.4fr_0.8fr_1fr]">
+        <div className="flex items-start gap-4">
           <BrandLogo variant="footer" />
           <div>
             <p className="font-display text-lg font-semibold tracking-[0.28em] text-white">
               {SITE.name}
             </p>
-            <p className="mt-2 text-sm text-white/55">
-              {SITE.contact.street}, {SITE.location}
-            </p>
-            <p className="mt-1 text-sm text-white/45">
-              <a className="hover:text-accent" href={SITE.contact.phoneHref}>
-                {SITE.contact.phone}
-              </a>
+            <p className="mt-2 text-[0.65rem] tracking-[0.16em] text-white/50 uppercase">
+              {SITE.motto}
             </p>
           </div>
+        </div>
+
+        <div className="space-y-2 text-sm text-white/60">
+          <p>
+            <a className="transition-colors hover:text-accent" href={SITE.contact.phoneHref}>
+              {SITE.contact.phone}
+            </a>
+          </p>
+          <p>
+            <a
+              className="transition-colors hover:text-accent"
+              href={`mailto:${SITE.contact.email}`}
+            >
+              {SITE.contact.email}
+            </a>
+          </p>
+          <p>
+            <a
+              className="transition-colors hover:text-accent"
+              href={SITE.contact.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {SITE.contact.street}, {SITE.contact.city}
+            </a>
+          </p>
+          <p>{SITE.contact.hoursLong}</p>
+          <p>
+            <a
+              className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram size={14} />
+              Instagram
+            </a>
+          </p>
         </div>
 
         <nav aria-label="Stopka">
