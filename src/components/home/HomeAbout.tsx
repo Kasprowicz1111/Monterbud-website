@@ -31,13 +31,14 @@ export function HomeAbout() {
           </Reveal>
         </div>
         <Reveal delayMs={80}>
-          <div className="relative aspect-[4/5] overflow-hidden border border-white/10 bg-surface">
+          <div className="relative aspect-[3/4] overflow-hidden border border-white/10 bg-surface">
             <Image
-              src="/realizacje/silosy-elewator.png"
-              alt="Silosy MONTERBUD przy hali z elewatorem"
+              src="/realizacje/img_9495.jpg"
+              alt="Zbiornik MONTERBUD na konstrukcji stalowej przy hali przemysłowej"
               fill
+              quality={90}
               sizes="(max-width: 1024px) 100vw, 42vw"
-              className="object-cover"
+              className="object-cover object-[58%_42%]"
             />
             <span className="absolute top-0 left-0 h-full w-[3px] bg-accent" aria-hidden="true" />
           </div>
