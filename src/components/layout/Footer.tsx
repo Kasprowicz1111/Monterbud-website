@@ -12,7 +12,14 @@ export function Footer() {
             <p className="font-display text-lg font-semibold tracking-[0.28em] text-white">
               {SITE.name}
             </p>
-            <p className="mt-2 text-sm text-white/55">{SITE.location}</p>
+            <p className="mt-2 text-sm text-white/55">
+              {SITE.contact.street}, {SITE.location}
+            </p>
+            <p className="mt-1 text-sm text-white/45">
+              <a className="hover:text-accent" href={SITE.contact.phoneHref}>
+                {SITE.contact.phone}
+              </a>
+            </p>
           </div>
         </div>
 

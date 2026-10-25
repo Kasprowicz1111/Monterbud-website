@@ -16,8 +16,10 @@ export const defaultMetadata: Metadata = {
   keywords: [
     "MONTERBUD",
     "Nowe Miasto Lubawskie",
-    "firma przemysłowa",
-    "przemysł",
+    "mieszalnie pasz",
+    "silosy",
+    "magazyny zboża",
+    "CNC",
   ],
   authors: [{ name: SITE.name }],
   creator: SITE.name,

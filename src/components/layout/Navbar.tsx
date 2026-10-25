@@ -33,6 +33,19 @@ export function Navbar() {
         <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Główne">
           {NAV_ITEMS.map((item) => {
             const active = isActivePath(pathname, item.href);
+            const isContact = item.href === "/kontakt";
+
+            if (isContact) {
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="border border-accent/80 px-4 py-2 text-[0.65rem] font-semibold tracking-[0.2em] text-accent uppercase transition-colors hover:bg-accent hover:text-background"
+                >
+                  {item.label}
+                </Link>
+              );
+            }
 
             return (
               <Link

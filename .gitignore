@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source dump of realization photos (curated copies live in public/realizacje)
+/realizacje
