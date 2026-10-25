@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { NAV_ITEMS, SITE } from "@/lib/site";
 
 function isActivePath(pathname: string, href: string) {
@@ -23,10 +24,13 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-[4.5rem] md:px-8">
         <Link
           href="/"
-          className="font-display text-lg font-semibold tracking-[0.28em] text-white md:text-xl"
+          className="flex items-center gap-2.5 text-white md:gap-3"
           onClick={() => setIsOpen(false)}
         >
-          {SITE.name}
+          <BrandLogo variant="nav" priority />
+          <span className="font-display text-lg font-semibold tracking-[0.28em] md:text-xl">
+            {SITE.name}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Główne">

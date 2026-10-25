@@ -1,3 +1,5 @@
+import { BrandLogo } from "@/components/brand/BrandLogo";
+
 type LoadingScreenProps = {
   active?: boolean;
 };
@@ -19,7 +21,10 @@ export function LoadingScreen({ active = false }: LoadingScreenProps) {
       aria-live="polite"
       aria-label="Ładowanie strony MONTERBUD"
     >
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-5">
+        <div data-loading-logo>
+          <BrandLogo variant="loading" priority />
+        </div>
         <p
           data-loading-mark
           className="font-display text-3xl font-semibold tracking-[0.28em] text-white md:text-5xl"
