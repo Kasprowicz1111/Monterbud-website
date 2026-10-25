@@ -2,20 +2,33 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { ProjectCadVisual } from "@/components/home/ProjectCadVisual";
 import { CAPABILITIES } from "@/lib/site";
-import { Reveal } from "@/components/home/Reveal";
 
-const VISUALS: Record<string, { src: string; alt: string } | null> = {
-  projekt: null,
+type Visual =
+  | { kind: "cad" }
+  | { kind: "photo"; src: string; alt: string; position: string };
+
+const VISUALS: Record<string, Visual> = {
+  projekt: { kind: "cad" },
   produkcja: {
+    kind: "photo",
     src: "/realizacje/zbiorniki-logo.png",
     alt: "Wykonane zbiorniki z oznaczeniem MONTERBUD",
+    position: "center 82%",
   },
   montaz: {
-    src: "/realizacje/montaz.png",
-    alt: "Montaż silosów na placu budowy",
+    kind: "photo",
+    src: "/realizacje/silosy-hala.png",
+    alt: "Montaż silosów przy hali",
+    position: "center 45%",
   },
-  serwis: null,
+  serwis: {
+    kind: "photo",
+    src: "/realizacje/img_9496.jpg",
+    alt: "Pojazd serwisowy MONTERBUD przy instalacji",
+    position: "center 60%",
+  },
 };
 
 export function HomeCapabilities() {
@@ -24,13 +37,11 @@ export function HomeCapabilities() {
   return (
     <section className="border-t border-white/8">
       <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 lg:py-28">
-        <Reveal>
-          <p className="text-[0.68rem] tracking-[0.32em] text-accent uppercase">Działalność</p>
-          <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold tracking-[0.1em] text-white md:text-5xl">
-            PROJEKT • PRODUKCJA • MONTAŻ • SERWIS
-          </h2>
-          <div className="section-rule mt-6 w-20" />
-        </Reveal>
+        <p className="text-[0.68rem] tracking-[0.32em] text-accent uppercase">Działalność</p>
+        <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold tracking-[0.1em] text-white md:text-5xl">
+          PROJEKT • PRODUKCJA • MONTAŻ • SERWIS
+        </h2>
+        <div className="section-rule mt-6 w-20" />
 
         <div className="mt-14 divide-y divide-white/8 border-y border-white/8">
           {CAPABILITIES.map((item, index) => {
@@ -39,7 +50,10 @@ export function HomeCapabilities() {
             const panelId = `capability-${item.key}`;
 
             return (
-              <article key={item.key} className="grid gap-6 py-8 lg:grid-cols-[7.5rem_1fr_18rem] lg:items-start">
+              <article
+                key={item.key}
+                className="grid items-center gap-6 py-8 lg:grid-cols-[6.5rem_minmax(0,1fr)_20rem]"
+              >
                 <p className="font-display text-4xl tracking-[0.08em] text-accent/80">
                   0{index + 1}
                 </p>
@@ -55,7 +69,7 @@ export function HomeCapabilities() {
                       {item.title}
                     </h3>
                     <span className="text-accent" aria-hidden="true">
-                      {open ? "—" : "+"}
+                      {open ? "−" : "+"}
                     </span>
                   </button>
                   <div
@@ -66,19 +80,20 @@ export function HomeCapabilities() {
                     {item.text}
                   </div>
                 </div>
-                {visual ? (
-                  <div className="relative hidden h-36 overflow-hidden border border-white/10 lg:block">
+                <div className="relative aspect-[16/10] w-full overflow-hidden border border-white/10 bg-graphite">
+                  {visual.kind === "cad" ? (
+                    <ProjectCadVisual />
+                  ) : (
                     <Image
                       src={visual.src}
                       alt={visual.alt}
                       fill
-                      sizes="288px"
-                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 320px"
+                      className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                      style={{ objectPosition: visual.position }}
                     />
-                  </div>
-                ) : (
-                  <div className="hidden h-36 border border-dashed border-white/8 lg:block" aria-hidden="true" />
-                )}
+                  )}
+                </div>
               </article>
             );
           })}

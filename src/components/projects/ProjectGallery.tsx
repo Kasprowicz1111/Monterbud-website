@@ -86,7 +86,7 @@ export function ProjectGallery() {
         ))}
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => {
           if (item.kind === "album") {
             const photos = getAlbumPhotos(item.album);
@@ -96,8 +96,7 @@ export function ProjectGallery() {
                 photo={item.cover}
                 category={item.album.category}
                 caption={item.album.title}
-                badge={`${photos.length} zdjęcia`}
-                tall={item.cover.span === "tall"}
+                badge={photos.length === 1 ? "1 zdjęcie" : `${photos.length} zdjęcia`}
                 wide={item.cover.span === "wide"}
                 onOpen={() => setLightbox({ photos, index: 0 })}
               />
@@ -109,7 +108,6 @@ export function ProjectGallery() {
               key={item.photo.id}
               photo={item.photo}
               category={item.photo.category}
-              tall={item.photo.span === "tall"}
               wide={item.photo.span === "wide"}
               onOpen={() => {
                 const index = flatPhotos.findIndex((photo) => photo.id === item.photo.id);
@@ -161,7 +159,6 @@ function GalleryCard({
   category,
   caption,
   badge,
-  tall,
   wide,
   onOpen,
 }: {
@@ -169,7 +166,6 @@ function GalleryCard({
   category: ProjectCategoryId;
   caption?: string;
   badge?: string;
-  tall?: boolean;
   wide?: boolean;
   onOpen: () => void;
 }) {
@@ -177,34 +173,31 @@ function GalleryCard({
     <button
       type="button"
       onClick={onOpen}
-      className={`group relative overflow-hidden border border-white/10 bg-surface text-left ${
-        wide ? "sm:col-span-2" : ""
+      className={`group relative block h-full min-h-[18rem] overflow-hidden border border-white/10 bg-graphite text-left sm:min-h-[20rem] ${
+        wide ? "sm:col-span-2 lg:min-h-[24rem]" : ""
       }`}
     >
-      <span className="sr-only">
-        Otwórz zdjęcie: {caption ?? photo.alt}
-      </span>
-      <div className={`relative ${tall ? "h-80 md:h-[28rem]" : "h-64 md:h-[22rem]"}`}>
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-background/85 via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-100" />
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
-          <div>
-            <p className="text-[0.62rem] tracking-[0.18em] text-accent uppercase">
-              {getCategoryLabel(category)}
-            </p>
-            {caption ? (
-              <p className="mt-1 text-sm text-white/90">{caption}</p>
-            ) : null}
-            {badge ? <p className="mt-1 text-[0.65rem] text-muted">{badge}</p> : null}
-          </div>
-          <Expand size={16} className="shrink-0 text-white/80" />
-        </div>
+      <span className="sr-only">Otwórz zdjęcie: {caption ?? photo.alt}</span>
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+        style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/80 via-background/10 to-transparent" />
+      <Expand
+        size={16}
+        className="absolute top-3 right-3 text-white/80 opacity-80 transition-opacity group-hover:opacity-100"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-x-0 bottom-0 p-4">
+        <p className="text-[0.62rem] tracking-[0.18em] text-accent uppercase">
+          {getCategoryLabel(category)}
+        </p>
+        {caption ? <p className="mt-1 text-sm text-white/90">{caption}</p> : null}
+        {badge ? <p className="mt-1 text-[0.65rem] text-muted">{badge}</p> : null}
       </div>
     </button>
   );

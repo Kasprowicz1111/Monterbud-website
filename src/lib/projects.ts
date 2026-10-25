@@ -1,7 +1,9 @@
 export const PROJECT_CATEGORIES = [
   { id: "silosy", label: "Zbiorniki i silosy" },
   { id: "mieszalnie", label: "Mieszalnie pasz" },
+  { id: "konstrukcje", label: "Konstrukcje stalowe" },
   { id: "montaz", label: "Instalacje i montaż" },
+  { id: "pozostale", label: "Pozostałe realizacje" },
 ] as const;
 
 export type ProjectCategoryId = (typeof PROJECT_CATEGORIES)[number]["id"];
@@ -14,6 +16,7 @@ export type ProjectPhoto = {
   albumId?: string;
   featured?: boolean;
   span: "wide" | "tall" | "normal";
+  objectPosition?: string;
 };
 
 export type ProjectAlbum = {
@@ -38,6 +41,7 @@ export const PROJECT_PHOTOS: ProjectPhoto[] = [
     albumId: "silosy-elewator",
     featured: true,
     span: "wide",
+    objectPosition: "center 40%",
   },
   {
     id: "silosy-elewator",
@@ -79,6 +83,7 @@ export const PROJECT_PHOTOS: ProjectPhoto[] = [
     category: "silosy",
     featured: true,
     span: "normal",
+    objectPosition: "center 80%",
   },
   {
     id: "zbiorniki-para",
@@ -86,6 +91,21 @@ export const PROJECT_PHOTOS: ProjectPhoto[] = [
     alt: "Para zbiorników na konstrukcji wsporczej",
     category: "silosy",
     span: "normal",
+  },
+  {
+    id: "silosy-hala",
+    src: "/realizacje/silosy-hala.png",
+    alt: "Silosy przy hali produkcyjnej",
+    category: "silosy",
+    span: "wide",
+  },
+  {
+    id: "img-9495",
+    src: "/realizacje/img_9495.jpg",
+    alt: "Zbiornik na konstrukcji wsporczej przy hali",
+    category: "silosy",
+    span: "tall",
+    objectPosition: "center 35%",
   },
   {
     id: "mieszalnia-hala",
@@ -120,6 +140,49 @@ export const PROJECT_PHOTOS: ProjectPhoto[] = [
     span: "normal",
   },
   {
+    id: "mieszalnia-hala-pelna",
+    src: "/realizacje/mieszalnia-hala-pelna.jpg",
+    alt: "Kompletna linia w hali",
+    category: "mieszalnie",
+    span: "wide",
+  },
+  {
+    id: "mieszalnia-zbiornik",
+    src: "/realizacje/mieszalnia-zbiornik.jpg",
+    alt: "Zespół mieszający w hali",
+    category: "mieszalnie",
+    span: "normal",
+  },
+  {
+    id: "mieszalnia-platforma",
+    src: "/realizacje/mieszalnia-platforma.png",
+    alt: "Urządzenie z platformą serwisową",
+    category: "mieszalnie",
+    span: "tall",
+  },
+  {
+    id: "mieszalnia-konstrukcja",
+    src: "/realizacje/mieszalnia-konstrukcja.png",
+    alt: "Konstrukcja nośna instalacji w hali",
+    category: "mieszalnie",
+    span: "normal",
+  },
+  {
+    id: "img-9488",
+    src: "/realizacje/img_9488.jpg",
+    alt: "Zbiornik stożkowy w hali",
+    category: "mieszalnie",
+    span: "tall",
+  },
+  {
+    id: "konstrukcja-oznaczenie",
+    src: "/realizacje/oznaczenie-konstrukcja.jpg",
+    alt: "Element konstrukcji stalowej z oznaczeniem MONTERBUD",
+    category: "konstrukcje",
+    span: "normal",
+    objectPosition: "center 40%",
+  },
+  {
     id: "montaz",
     src: "/realizacje/montaz.png",
     alt: "Montaż silosów na placu budowy",
@@ -133,6 +196,51 @@ export const PROJECT_PHOTOS: ProjectPhoto[] = [
     alt: "Przenośniki przygotowane do realizacji",
     category: "montaz",
     span: "wide",
+    objectPosition: "center 60%",
+  },
+  {
+    id: "silos-elewator-montaz",
+    src: "/realizacje/silos-elewator-montaz.png",
+    alt: "Montaż silosu z elewatorem przy budynku",
+    category: "montaz",
+    span: "tall",
+    objectPosition: "center 30%",
+  },
+  {
+    id: "montaz-zuraw",
+    src: "/realizacje/montaz-zuraw.png",
+    alt: "Montaż konstrukcji zbiornika przy dźwigu",
+    category: "montaz",
+    span: "normal",
+  },
+  {
+    id: "przenosniki-zaklad",
+    src: "/realizacje/przenosniki-zaklad.jpg",
+    alt: "Przenośniki na placu zakładu",
+    category: "montaz",
+    span: "normal",
+  },
+  {
+    id: "pojazd-przenosniki",
+    src: "/realizacje/pojazd-przenosniki.jpg",
+    alt: "Realizacja MONTERBUD",
+    category: "pozostale",
+    span: "normal",
+  },
+  {
+    id: "sterowanie",
+    src: "/realizacje/sterowanie.png",
+    alt: "Realizacja MONTERBUD",
+    category: "pozostale",
+    span: "normal",
+  },
+  {
+    id: "img-9496",
+    src: "/realizacje/img_9496.jpg",
+    alt: "Realizacja MONTERBUD",
+    category: "pozostale",
+    span: "wide",
+    objectPosition: "center 70%",
   },
 ];
 
@@ -181,7 +289,6 @@ const HOME_PROJECT_IDS = [
   "silosy-rzad",
 ] as const;
 
-/** Homepage teaser: mixed categories, limited count. */
 export const HOME_PROJECT_PHOTOS = HOME_PROJECT_IDS.flatMap((id) => {
   const photo = PROJECT_PHOTOS.find((item) => item.id === id);
   return photo ? [photo] : [];

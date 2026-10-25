@@ -29,37 +29,35 @@ export function HomeProjectsTeaser() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {HOME_PROJECT_PHOTOS.map((item, index) => (
             <Reveal
               key={item.id}
               delayMs={index * 40}
-              className={item.span === "wide" ? "sm:col-span-2" : undefined}
+              className={item.span === "wide" ? "h-full sm:col-span-2" : "h-full"}
             >
               <Link
                 href="/realizacje"
-                className="group relative block overflow-hidden border border-white/10 bg-surface"
+                className={`group relative block h-full min-h-[18rem] overflow-hidden border border-white/10 bg-graphite sm:min-h-[20rem] ${
+                  item.span === "wide" ? "lg:min-h-[24rem]" : ""
+                }`}
               >
-                <div
-                  className={`relative overflow-hidden ${
-                    item.span === "tall" ? "h-80 md:h-[28rem]" : "h-64 md:h-80"
-                  }`}
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
-                    <p className="text-[0.65rem] tracking-[0.18em] text-white/85 uppercase">
-                      {getCategoryLabel(item.category)}
-                    </p>
-                    <Expand size={16} className="text-accent opacity-0 transition-opacity group-hover:opacity-100" />
-                  </div>
-                </div>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+                />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent" />
+                <Expand
+                  size={16}
+                  className="absolute top-3 right-3 text-white/80 opacity-0 transition-opacity group-hover:opacity-100"
+                />
+                <p className="absolute inset-x-0 bottom-0 p-4 text-[0.65rem] tracking-[0.18em] text-white/85 uppercase">
+                  {getCategoryLabel(item.category)}
+                </p>
               </Link>
             </Reveal>
           ))}

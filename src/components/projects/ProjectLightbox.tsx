@@ -77,7 +77,7 @@ export function ProjectLightbox({ photos, index, onClose, onChange }: ProjectLig
           ref={closeRef}
           type="button"
           onClick={onClose}
-          className="inline-flex h-11 w-11 items-center justify-center text-white transition-colors hover:text-accent"
+          className="inline-flex h-11 w-11 items-center justify-center border border-white/20 text-white transition-colors hover:border-accent/70 hover:text-accent"
           aria-label="Zamknij podgląd"
         >
           <X size={22} />
