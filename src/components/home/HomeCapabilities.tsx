@@ -15,13 +15,13 @@ const VISUALS: Record<string, Visual> = {
     kind: "photo",
     src: "/realizacje/zbiorniki-logo.png",
     alt: "Wykonane zbiorniki z oznaczeniem MONTERBUD",
-    position: "center 82%",
+    position: "center 64%",
   },
   montaz: {
     kind: "photo",
     src: "/realizacje/silosy-hala.png",
     alt: "Montaż silosów przy hali",
-    position: "center 45%",
+    position: "18% 38%",
   },
   serwis: {
     kind: "photo",
@@ -52,7 +52,7 @@ export function HomeCapabilities() {
             return (
               <article
                 key={item.key}
-                className="grid items-center gap-6 py-8 lg:grid-cols-[6.5rem_minmax(0,1fr)_20rem]"
+                className="grid items-center gap-6 py-8 lg:grid-cols-[5.75rem_minmax(0,1fr)_minmax(17rem,26rem)]"
               >
                 <p className="font-display text-4xl tracking-[0.08em] text-accent/80">
                   0{index + 1}
@@ -80,7 +80,7 @@ export function HomeCapabilities() {
                     {item.text}
                   </div>
                 </div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden border border-white/10 bg-graphite">
+                <div className="relative aspect-[4/3] w-full overflow-hidden border border-white/10 bg-graphite">
                   {visual.kind === "cad" ? (
                     <ProjectCadVisual />
                   ) : (
