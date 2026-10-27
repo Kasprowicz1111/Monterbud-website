@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { metadataBase } from "@/lib/seo";
 import { NAV_ITEMS } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return NAV_ITEMS.map((item) => ({
     url: new URL(item.href, metadataBase).toString(),
