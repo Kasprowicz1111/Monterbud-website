@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const defaultProductionUrl = "https://monterbud.eu";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NODE_ENV === "production" ? defaultProductionUrl : "http://localhost:3000");
 
 export const metadataBase = new URL(siteUrl);
 
